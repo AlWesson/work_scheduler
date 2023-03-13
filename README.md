@@ -4,7 +4,7 @@ A simple scheduler for standard work hours.
 
 ## Discription
 
-![alt text](https://raw.githubusercontent.com/AlWesson/work_scheduler/master/Assets/images/screeshot_work_scheduler.png)
+![alt text](https://raw.githubusercontent.com/AlWesson/work_scheduler/master/Assets/img/screeshot_work_scheduler.png)
 
 work_sceduler is a simple scheduler using the localStorage to save events between the hours of 9AM-5PM. 
 
