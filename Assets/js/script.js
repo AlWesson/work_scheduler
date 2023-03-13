@@ -1,5 +1,5 @@
 let t = 4; // this is for the display alertTimer fucntion. 
-let b = 9;
+let b = 9; // this let is for the loop i have set up to write stored data from localStorage to text area.
 function newElements(){
 
   // dynamically adding all the html elements with this function.
@@ -99,6 +99,7 @@ $(document).ready(function () {
 
   realTime();
   hourOfDay();
+  // checks hour of day every minute.
   setInterval(hourOfDay,60000);
 
  // function for save button.
@@ -113,7 +114,7 @@ $(document).ready(function () {
 
   });
   
-  
+  // this loop is writing all saved localStorage data to the textareas in html.
   for(let a = 0; a < 9; a++){
     
   $("#hour-"+ b).children().eq(1).val(localStorage.getItem('hour-'+ b));
