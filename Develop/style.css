@@ -57,3 +57,13 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+.saveAlert {
+  display: none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: darkred;
+}
+
+.visible { 
+  display: block;
+}

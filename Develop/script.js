@@ -1,4 +1,4 @@
-
+let t = 6;
 function newElements(){
 
   // dynamically adding all the html elements with this function.
@@ -11,8 +11,6 @@ function newElements(){
     let bT = 'btn saveBtn col-2 col-md-1';
     let i = 'fas fa-save';
 
-
-    //===============================================
     for(counter; counter < arr.length; counter++){
       let $newDiv = $("<div/>")
         .attr("id", arr[counter])
@@ -44,8 +42,9 @@ function newElements(){
 
 function realTime() {
 
-
+  $("#currentDay").html(dayjs().format("dddd, MM-DD-YYYY"));
 }
+
 
 
 $(document).ready(function () {
@@ -59,13 +58,37 @@ $(document).ready(function () {
  $("#hour-" + j).children().eq(0).html(arr2[i]);
   j++;
   }
+
+  realTime();
+
  // function for save button.
   $('.saveBtn').click(function(){
     
-    let
+    let info = $(this).siblings(".description").val();
+    let infoTime = $(this).parent().attr("id");
+
+    localStorage.setItem(infoTime,info);
+    
+    function alertTimer() {
+      
+      let timerInterval = setInterval(function() {
+          t--;
+          $(".saveAlert").addClass(".visible");
+          if(t === 0){
+            $(".saveAlert").removeClass(".visible");
+            clearInterval(timerInterval);
+          }
+          if(t <= -1){ 
+            clearInterval(timerInterval); 
+          }
+          
+        }, 1000);
+    }
+    alertTimer();
+    
     
 
-  })
+  });
   
 
 
