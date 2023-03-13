@@ -14,7 +14,7 @@ work_sceduler is a simple scheduler using the localStorage to save events betwee
 
 ## How to use 
 
-
+Use this link (https://alwesson.github.io/work_scheduler/)
 
 ## License 
 
