@@ -6,7 +6,7 @@ A simple scheduler for standard work hours.
 
 ![alt text](https://raw.githubusercontent.com/AlWesson/work_scheduler/master/Assets/img/screenshot_work_scheduler.png)
 
-work_sceduler is a simple scheduler using the localStorage to save events between the hours of 9AM-5PM. 
+work_sceduler is a simple scheduler using the localStorage to save events between the hours of 9AM-5PM. Simply write down the event you wish to save on the prefered hour and click the blue save button to the right of the selected hour.
 
 # Built With
 
