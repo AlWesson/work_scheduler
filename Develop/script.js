@@ -1,4 +1,5 @@
-let t = 4;
+let t = 4; // this is for the display alertTimer fucntion. 
+let b = 9;
 function newElements(){
 
   // dynamically adding all the html elements with this function.
@@ -39,11 +40,13 @@ function newElements(){
  
 }
 
+// fucntion to display date.
 function realTime() {
 
   $("#currentDay").html(dayjs().format("dddd, MM-DD-YYYY"));
 }
 
+// fucntion for displaying a message to page when saving to localStorage.
 function alertTimer() {
   $(".saveAlert").addClass("visible");
   let timerInterval = setInterval(function() {
@@ -58,19 +61,45 @@ function alertTimer() {
     }, 1000);
 }
 
+function hourOfDay(){
+  let now = dayjs().hour();
+
+  $(".time-block").each(function() {
+    let thisHour = parseInt($(this).attr("id").split("-")[1]);
+
+    if(thisHour < now){
+      $(this).addClass("past");
+    }
+    if(thisHour === now){
+      $(this).removeClass("past");
+      $(this).addClass("present");
+    }
+    if(thisHour > now){
+      $(this).removeClass("past");
+      $(this).removeClass("present");
+      $(this).addClass("future");
+    }
+
+  })
+}
+
 $(document).ready(function () {
   newElements();
   // number to keep track of the ids.
   let j = 9;
+  
   // array of business hours.
   let arr2 = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
-// loop for dynamically inserting all times 9am - 5pm.
+  
+  // loop for dynamically inserting all times 9am - 5pm.
   for(let i = 0; i < 9; i++){
  $("#hour-" + j).children().eq(0).html(arr2[i]);
   j++;
   }
 
   realTime();
+  hourOfDay();
+  setInterval(hourOfDay,60000);
 
  // function for save button.
   $('.saveBtn').click(function(){
@@ -80,14 +109,15 @@ $(document).ready(function () {
 
     localStorage.setItem(infoTime, info);
     
-    
-    
     alertTimer();
-    
-    
 
   });
   
-
+  
+  for(let a = 0; a < 9; a++){
+    
+  $("#hour-"+ b).children().eq(1).val(localStorage.getItem('hour-'+ b));
+    b++;
+  }
 
 });
