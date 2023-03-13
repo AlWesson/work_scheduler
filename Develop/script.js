@@ -1,4 +1,4 @@
-let t = 6;
+let t = 4;
 function newElements(){
 
   // dynamically adding all the html elements with this function.
@@ -20,7 +20,6 @@ function newElements(){
       
       let $newDivChild = $("<div/>")
       .addClass(dC2)
-      //.html(arr2[counter]);
       $(".row").append($newDivChild);
    
       let $newTxt = $("<textarea/>")
@@ -45,7 +44,19 @@ function realTime() {
   $("#currentDay").html(dayjs().format("dddd, MM-DD-YYYY"));
 }
 
-
+function alertTimer() {
+  $(".saveAlert").addClass("visible");
+  let timerInterval = setInterval(function() {
+      t--;
+      if(t <= -1){ 
+        $(".saveAlert").removeClass("visible");
+        t = 4; // t = 4 because the if checks for -1;
+        clearInterval(timerInterval);
+        
+      }
+      
+    }, 1000);
+}
 
 $(document).ready(function () {
   newElements();
@@ -67,23 +78,10 @@ $(document).ready(function () {
     let info = $(this).siblings(".description").val();
     let infoTime = $(this).parent().attr("id");
 
-    localStorage.setItem(infoTime,info);
+    localStorage.setItem(infoTime, info);
     
-    function alertTimer() {
-      
-      let timerInterval = setInterval(function() {
-          t--;
-          $(".saveAlert").addClass(".visible");
-          if(t === 0){
-            $(".saveAlert").removeClass(".visible");
-            clearInterval(timerInterval);
-          }
-          if(t <= -1){ 
-            clearInterval(timerInterval); 
-          }
-          
-        }, 1000);
-    }
+    
+    
     alertTimer();
     
     
