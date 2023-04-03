@@ -2,7 +2,7 @@
 
 A simple scheduler for standard work hours.
 
-## Discription
+## Description
 
 ![alt text](https://raw.githubusercontent.com/AlWesson/work_scheduler/master/Assets/img/screenshot_work_scheduler.png)
 
